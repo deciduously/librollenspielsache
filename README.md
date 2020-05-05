@@ -4,6 +4,8 @@
 ![Docs](https://docs.rs/librollenspielsache/badge.svg)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/deciduously/librollenspielsache/Rust)
 
+WIP - there's like nothing actually here yet.  This is more a guiding plan.
+
 The Rollenspielsache is a set of tools for managing tabletop RPG games.  The goal is to handle the mechanics seamlessly, allowing you to participate or run a tabletop encounter without getting distracted by rule clarifications.
 
 ## Overview
@@ -32,3 +34,7 @@ Data-ready
 
 * C-compatible - see [librollenspielsache-rb](https://github.com/deciduously/librollenspielsache-rb) for an example of how to use from another language.
 * Redis-ready - each type has a method to build an appropriate Redis command for insertion.
+
+## Usage
+
+Control the build with `cargo`.  Use `make all` as a shortcut to put the compiled shared object file for FFI usage in `dist/`.  Point your linker to this file to use it.

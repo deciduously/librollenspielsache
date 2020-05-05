@@ -16,8 +16,13 @@ endif
 
 LIBFILE=$(LIBNAME).$(EXT)
 OUTPATH=$(LIBPATH)/$(LIBFILE)
+DIST=dist
+DISTPATH=$(DIST)/$(LIBFILE)
 
-all: $(OUTPATH)
+all: clean $(OUTPATH)
+	mkdir -p $(DIST)
+	cp $(OUTPATH) $(DISTPATH)
+	strip $(DISTPATH)
 
 test:
 	cargo test
@@ -26,7 +31,8 @@ $(OUTPATH): $(RUSTSRC)/lib.rs Cargo.toml
 	cargo build --release
 
 clean:
-	cargo clean
+	rm $(OUTPATH)
+	rm -rf $(DIST)
 
 .PHONY: all test clean docs
 
