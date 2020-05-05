@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["roll_execute","Execute a roll # Safety This function unsafely turns a raw pointer to a reference"],["roll_from_str","Construct a new Roll object from a string # Safety This function unsafely converts a *const ch_char to a CStr"],["roll_result_to_string","Get the string representation of a roll result"]]});

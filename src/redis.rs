@@ -1,4 +1,5 @@
-/// redis.rs concerns connecting to Redis
+//! Working with Redis datatypes.
+
 use lazy_static::lazy_static;
 use r2d2_redis::redis::ToRedisArgs;
 use r2d2_redis::{r2d2, RedisConnectionManager};
@@ -27,7 +28,7 @@ impl Connection {
     }
 
     fn url(&self) -> String {
-        format!("redis://{}:{}", self.host, self.port)
+        format!("redis://{}:{}/", self.host, self.port)
     }
 
     fn establish(&self) -> Pool {
@@ -46,7 +47,7 @@ impl Default for Connection {
 }
 
 lazy_static! {
-    pub static ref POOL: Pool = Connection::default().establish();
+    pub static ref POOL: Pool = Connection::new().establish();
 }
 
 /// These items can use the Redis connection direction

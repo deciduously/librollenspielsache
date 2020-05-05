@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["connect","Opens a connection."]],"struct":[["Connection","Represents a stateful redis TCP connection."],["MultiplexedConnection","A connection object which can be cloned, allowing requests to be be sent concurrently on the same underlying connection (tcp/unix socket)."]],"trait":[["ConnectionLike","An async abstraction over connections."]]});

@@ -1,4 +1,5 @@
-/// modifier.rs encodes all the different tyeps of modifier
+//! All the different types of modifier.
+
 use crate::skill::Skill;
 use std::fmt;
 
@@ -19,7 +20,6 @@ impl fmt::Display for ModifierType {
     }
 }
 
-// A Modifier represents an offset to apply to a roll result
 #[derive(Debug, Clone, PartialEq)]
 pub struct Modifier {
     pub offset: isize,

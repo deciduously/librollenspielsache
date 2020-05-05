@@ -1,4 +1,4 @@
-// error.rs contains the library error type
+//! Library error type.
 
 use thiserror::Error;
 

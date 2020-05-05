@@ -1,4 +1,4 @@
-// game_system.rs defines the supported RPG-specific rules
+//! Supported RPG-specific rules.
 
 use crate::character::Character;
 
