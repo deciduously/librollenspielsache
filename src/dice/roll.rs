@@ -4,7 +4,45 @@ use lazy_static::lazy_static;
 use rand::{thread_rng, Rng};
 use regex::Regex;
 
-// A Roll represents a single computation, for instance "2d4+5"
+/// A Roll represents a single computation, for instance "2d4+5"
+/// 
+/// Create with fields:
+/// 
+/// ```
+/// # use rollenspielsache::dice::Roll;
+/// # use rollenspielsache::modifier::*;
+/// let new_roll = Roll::new(20, 2, Modifiers::default());
+/// ```
+/// 
+/// Create by string:
+/// 
+/// ```
+/// # use rollenspielsache::dice::Roll;
+/// # use std::error::Error;
+/// # fn main() -> Result<(), Box<dyn Error>> {
+/// # use std::str::FromStr;
+/// let new_roll = Roll::from_str("2d20-7")?;
+/// # Ok(())
+/// # }
+/// ```
+/// 
+/// Execute:
+/// 
+/// ```
+/// # use rollenspielsache::dice::*;
+/// # use rollenspielsache::modifier::*;
+/// # use std::error::Error;
+/// # use std::str::FromStr;
+/// # fn main() -> Result<(), Box<dyn Error>> {
+/// # let new_roll = Roll::from_str("2d20-7")?;
+///   let result = new_roll.execute();
+///   println!("{}", result.total());
+/// # assert_eq!(new_roll, Roll::new(20, 2, Modifiers::from(vec![Modifier::new(7, true, ModifierType::Unspecified)])));
+/// Ok(())
+/// # }
+/// ```
+/// 
+/// Roll::default() will build a "1d6+0" roll.
 #[derive(Debug, Clone, PartialEq)]
 pub struct Roll {
     die: Die,
@@ -13,9 +51,9 @@ pub struct Roll {
 }
 
 impl Roll {
-    fn new(die: Die, repeat: usize, modifiers: Modifiers) -> Self {
+    pub fn new(die: usize, repeat: usize, modifiers: Modifiers) -> Self {
         Self {
-            die,
+            die: Die::new(die),
             repeat,
             modifiers,
         }
@@ -88,8 +126,8 @@ impl FromStr for Roll {
 
             let modifiers = vec![Modifier::new(offset, negative, ModifierType::Unspecified)];
             let die = match caps.name("sides") {
-                Some(sides_s) => Die::new(sides_s.as_str().parse::<usize>().unwrap()),
-                None => Die::default(),
+                Some(sides_s) => sides_s.as_str().parse::<usize>().unwrap(),
+                None => 6,
             };
             let mut repeat = 1;
             if let Some(repeat_s) = caps.name("repeat") {

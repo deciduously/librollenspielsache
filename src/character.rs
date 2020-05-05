@@ -1,4 +1,4 @@
-// character.rs defines characters - PCs, NPCs, drones
+//! Characters - PCs, NPCs, drones.
 
 #[derive(Debug)]
 pub struct Character {

@@ -2,10 +2,9 @@ use super::*;
 use libc::c_char;
 use std::ffi::{CStr, CString};
 
+/// Construct a new Roll object from a string
 /// # Safety
 /// This function unsafely converts a *const ch_char to a CStr
-///
-/// Construct a new Roll object from a string
 #[no_mangle]
 pub unsafe extern "C" fn roll_from_str(s: *const c_char) -> *mut Roll {
     // Get a Rust string form the char*
@@ -20,9 +19,10 @@ pub unsafe extern "C" fn roll_from_str(s: *const c_char) -> *mut Roll {
     Box::into_raw(Box::new(roll))
 }
 
+
+/// Execute a roll
 /// # Safety
 /// This function unsafely turns a raw pointer to a reference
-/// Execute a roll
 #[no_mangle]
 pub unsafe extern "C" fn roll_execute(ptr: *const Roll) -> *mut RollResult {
     // Attempt to use the raw pointer a a Roll object

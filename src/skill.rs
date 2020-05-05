@@ -1,4 +1,4 @@
-// skill.rs is concerned with skills and abilities
+//! skill.rs is concerned with skills and abilities.
 
 use crate::dice::Roll;
 use std::fmt;

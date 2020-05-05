@@ -1,4 +1,5 @@
-/// redis.rs concerns connecting to Redis
+//! Working with Redis datatypes.
+
 use lazy_static::lazy_static;
 use r2d2_redis::redis::ToRedisArgs;
 use r2d2_redis::{r2d2, RedisConnectionManager};
