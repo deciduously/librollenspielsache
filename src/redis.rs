@@ -65,11 +65,12 @@ impl From<RedisHashPair> for (String, String) {
 }
 
 /// A representation of a Rust object's data as RedisHashPairs
+#[derive(Default)]
 pub struct RedisHash(Vec<RedisHashPair>);
 
 impl RedisHash {
     pub fn new() -> Self {
-        Self(vec![])
+        Self::default()
     }
     pub fn add_pair(&mut self, key: &str, value: &str) {
         self.0.push(RedisHashPair(key.into(), value.into()))

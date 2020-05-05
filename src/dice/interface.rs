@@ -32,7 +32,7 @@ pub unsafe extern "C" fn roll_free(ptr: *mut Roll) {
 
 /// Getter for base
 /// # Safety
-/// Checks for null pointer, panics
+/// Panics via assert! on a null ptr
 #[no_mangle]
 pub unsafe extern "C" fn roll_base(ptr: *const Roll) -> usize {
     // Attempt to use the raw pointer a a Roll object
@@ -45,7 +45,7 @@ pub unsafe extern "C" fn roll_base(ptr: *const Roll) -> usize {
 
 /// Getter for repeat
 /// # Safety
-/// Checks for null pointer, panics
+/// Panics via assert! on a null ptr
 #[no_mangle]
 pub unsafe extern "C" fn roll_repeat(ptr: *const Roll) -> usize {
     // Attempt to use the raw pointer a a Roll object
@@ -60,7 +60,7 @@ pub unsafe extern "C" fn roll_repeat(ptr: *const Roll) -> usize {
 
 /// Execute a roll
 /// # Safety
-/// This function unsafely turns a raw pointer to a reference
+/// Panics via assert! on a null ptr
 #[no_mangle]
 pub unsafe extern "C" fn roll_execute(ptr: *const Roll) -> *mut RollResult {
     // Attempt to use the raw pointer a a Roll object
@@ -75,6 +75,8 @@ pub unsafe extern "C" fn roll_execute(ptr: *const Roll) -> *mut RollResult {
 }
 
 /// Get the string representation of a roll result
+/// # Safety
+/// Panics via assert! on a null ptr
 #[no_mangle]
 pub unsafe extern "C" fn roll_result_to_string(ptr: *const RollResult) -> *mut c_char {
     let result = {

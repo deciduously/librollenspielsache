@@ -7,6 +7,8 @@ use std::ffi::CString;
 /// Clients need to call this to ensure proper cleanup.
 /// It is recommended to do iso in a way such that your finding performs this automatically.
 /// See the [Rust FFI Omnibus](http://jakegoulding.com/rust-ffi-omnibus/string_return/) for examples.
+/// # Safety
+/// On a null ptr, returns
 #[no_mangle]
 pub unsafe extern "C" fn string_free(s: *mut c_char) {
     {
