@@ -47,7 +47,7 @@ impl Default for Connection {
 }
 
 lazy_static! {
-    pub static ref POOL: Pool = Connection::default().establish();
+    pub static ref POOL: Pool = Connection::new().establish();
 }
 
 /// These items can use the Redis connection direction

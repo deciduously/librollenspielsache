@@ -3,11 +3,11 @@ name: Rust
 on: [push]
 
 jobs:
-  runner-job:
-    # You must use a Linux environment when using service containers or container jobs
+  container-job:
+    # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
 
-    # Service containers to run with `runner-job`
+    # Service containers to run with `container-job`
     services:
       # Label used to access the service container
       redis:
@@ -19,9 +19,6 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-        ports:
-          # Maps port 6379 on service container to the host
-          - 6379:6379
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -30,5 +27,5 @@ jobs:
     - name: Run tests
       run: cargo test --verbose
       env:
-        REDIS_HOST: localhost
+        REDIS_HOST: redis
         REDIS_PORT: 6379
