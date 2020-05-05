@@ -3,6 +3,7 @@
 use lazy_static::lazy_static;
 use r2d2_redis::redis::ToRedisArgs;
 use r2d2_redis::{r2d2, RedisConnectionManager};
+use std::env::var;
 
 // This isn't really used at all.
 
@@ -14,11 +15,16 @@ struct Connection {
 }
 
 impl Connection {
-    fn new(port: i16, host: &str) -> Self {
-        Self {
-            port,
-            host: host.into(),
+    fn new() -> Self {
+        let mut ret = Self::default();
+        // Check if REDIS_HOST and/or REDIS_PORT are set and use those instead
+        if let Ok(hostname) = var("REDIS_HOST") {
+            ret.host = hostname;
         }
+        if let Ok(portnum) = var("REDIS_PORT") {
+            ret.port = portnum.parse::<i16>().unwrap();
+        }
+        ret
     }
 
     fn url(&self) -> String {
@@ -33,7 +39,10 @@ impl Connection {
 
 impl Default for Connection {
     fn default() -> Self {
-        Self::new(6379, "localhost")
+        Self {
+            port: 6379,
+            host: "localhost".into(),
+        }
     }
 }
 
