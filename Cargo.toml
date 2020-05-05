@@ -9,7 +9,6 @@ license = "BSD-3-Clause"
 repository = "https://github.com/deciduously/librollenspielsache"
 homepage = "https://crates.io/crates/librollenspielsache"
 readme = "README.md"
-changelog = "CHANGELOG.md"
 documentation = "https://docs.rs/librollenspielsache"
 include = [
     "**/*.rs",
