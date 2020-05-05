@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["ModifierType",""]],"struct":[["Modifier",""],["Modifiers",""]]});

@@ -28,10 +28,6 @@ $(OUTPATH): $(RUSTSRC)/lib.rs Cargo.toml
 clean:
 	cargo clean
 
-docs: all
-	cargo doc
-	cp -r target/doc ./docs
-
 .PHONY: all test clean docs
 
 # end
