@@ -16,8 +16,13 @@ endif
 
 LIBFILE=$(LIBNAME).$(EXT)
 OUTPATH=$(LIBPATH)/$(LIBFILE)
+DIST=dist
+DISTPATH=$(DIST)/$(LIBFILE)
 
 all: $(OUTPATH)
+	mkdir -p $(DIST)
+	cp $(OUTPATH) $(DISTPATH)
+	strip $(DISTPATH)
 
 test:
 	cargo test

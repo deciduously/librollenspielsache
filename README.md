@@ -32,3 +32,7 @@ Data-ready
 
 * C-compatible - see [librollenspielsache-rb](https://github.com/deciduously/librollenspielsache-rb) for an example of how to use from another language.
 * Redis-ready - each type has a method to build an appropriate Redis command for insertion.
+
+## Usage
+
+Control the build with `cargo`.  Use `make all` as a shortcut to put the compiled shared object file for FFI usage in `dist/`.  Point your linker to this file to use it.
