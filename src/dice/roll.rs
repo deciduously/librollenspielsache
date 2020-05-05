@@ -5,17 +5,17 @@ use rand::{thread_rng, Rng};
 use regex::Regex;
 
 /// A Roll represents a single computation, for instance "2d4+5".
-/// 
+///
 /// Create with fields:
-/// 
+///
 /// ```
 /// # use rollenspielsache::dice::Roll;
 /// # use rollenspielsache::modifier::*;
 /// let new_roll = Roll::new(20, 2, Modifiers::default());
 /// ```
-/// 
+///
 /// Create by string:
-/// 
+///
 /// ```
 /// # use rollenspielsache::dice::Roll;
 /// # use std::error::Error;
@@ -25,9 +25,9 @@ use regex::Regex;
 /// # Ok(())
 /// # }
 /// ```
-/// 
+///
 /// Execute:
-/// 
+///
 /// ```
 /// # use rollenspielsache::dice::*;
 /// # use rollenspielsache::modifier::*;
@@ -41,7 +41,7 @@ use regex::Regex;
 /// Ok(())
 /// # }
 /// ```
-/// 
+///
 /// Roll::default() will build a "1d6+0" roll.
 #[derive(Debug, Clone, PartialEq)]
 pub struct Roll {

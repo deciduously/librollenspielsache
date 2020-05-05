@@ -1,8 +1,8 @@
 # librollenspielsache
 
-![Crates.io](https://img.shields.io/crates/d/librollenspielsache)
-![Docs](https://docs.rs/librollenspielsache/badge.svg)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/deciduously/librollenspielsache/Rust)
+[![Crates.io](https://img.shields.io/crates/d/librollenspielsache)](https://crates.io/crates/librollenspielsache)
+[![Docs](https://docs.rs/librollenspielsache/badge.svg)](https://docs.rs/librollenspielsache)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/deciduously/librollenspielsache/Rust)](https://github.com/deciduously/librollenspielsache/actions)
 
 WIP - there's like nothing actually here yet.  This is more a guiding plan.
 

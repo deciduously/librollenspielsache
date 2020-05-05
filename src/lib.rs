@@ -19,8 +19,8 @@ pub mod modifier;
 pub mod redis;
 pub mod skill;
 
-pub use interface::*;
 pub use dice::interface::*;
+pub use interface::*;
 
 #[cfg(test)]
 mod tests {
