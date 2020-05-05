@@ -9,7 +9,7 @@ license = "BSD-3-Clause"
 repository = "https://github.com/deciduously/librollenspielsache"
 homepage = "https://github.com/deciduously/librollenspielsache"
 readme = "README.md"
-documentation = "http://deciduously.github.io/librollenspielsache"
+documentation = "https://deciduously.github.io/librollenspielsache/"
 
 [lib]
 name = "rollenspielsache"
