@@ -19,6 +19,9 @@ include = [
 name = "rollenspielsache"
 crate-type = ["cdylib", "rlib"]
 
+[profile.release]
+lto = true
+
 [dependencies]
 
 libc = "0.2"
