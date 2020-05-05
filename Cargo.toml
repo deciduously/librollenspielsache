@@ -1,19 +1,19 @@
 [package]
 name = "librollenspielsache"
-description = "API for working with tabletop RPG entities"
+description = "API for working with tabletop RPG entities."
 keywords = ["fun"]
 version = "0.1.0"
 authors = ["Ben Lovy <ben@deciduously.com>"]
 edition = "2018"
 license = "BSD-3-Clause"
-repository = "https://github.com/deciduously/rollenspielsache"
-homepage = "http://rollenspielsache.deciduously.com"
+repository = "https://github.com/deciduously/librollenspielsache"
+homepage = "https://github.com/deciduously/librollenspielsache"
 readme = "README.md"
-documentation = "http://rollenspielsache.deciduously.com/docs"
+documentation = "http://deciduously.github.io/librollenspielsache"
 
 [lib]
 name = "rollenspielsache"
-crate-type = ["cdylib"]
+crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 

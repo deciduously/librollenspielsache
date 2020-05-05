@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["POOL",""],["RedisHash","A representation of a Rust object's data as RedisHashPairs"],["RedisHashPair","A single key-value Redis Hash mapping"]],"trait":[["RedisInterface","Objects must implement this trait to work with the data store"]],"type":[["Pool",""]]});
