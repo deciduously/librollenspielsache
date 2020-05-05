@@ -1,5 +1,9 @@
 # librollenspielsache
 
+![Crates.io](https://img.shields.io/crates/d/librollenspielsache)
+![Docs](https://docs.rs/librollenspielsache/badge.svg)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/deciduously/librollenspielsache/Rust)
+
 The Rollenspielsache is a set of tools for managing tabletop RPG games.  The goal is to handle the mechanics seamlessly, allowing you to participate or run a tabletop encounter without getting distracted by rule clarifications.
 
 ## Overview
