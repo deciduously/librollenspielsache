@@ -58,6 +58,12 @@ impl Roll {
             modifiers,
         }
     }
+    pub fn get_base(&self) -> usize {
+        self.die.sides
+    }
+    pub fn get_repeat(&self) -> usize {
+        self.repeat
+    }
     fn get_modifier(&self) -> isize {
         self.modifiers.net()
     }

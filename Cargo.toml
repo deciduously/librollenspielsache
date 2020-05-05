@@ -2,7 +2,7 @@
 name = "librollenspielsache"
 description = "API for working with tabletop RPG entities."
 keywords = ["fun"]
-version = "0.0.1"
+version = "0.1.0"
 authors = ["Ben Lovy <ben@deciduously.com>"]
 edition = "2018"
 license = "BSD-3-Clause"
