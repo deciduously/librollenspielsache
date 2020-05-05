@@ -28,7 +28,7 @@ impl Connection {
     }
 
     fn url(&self) -> String {
-        format!("redis://{}:{}", self.host, self.port)
+        format!("redis://{}:{}/", self.host, self.port)
     }
 
     fn establish(&self) -> Pool {
