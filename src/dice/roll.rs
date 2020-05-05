@@ -4,7 +4,7 @@ use lazy_static::lazy_static;
 use rand::{thread_rng, Rng};
 use regex::Regex;
 
-/// A Roll represents a single computation, for instance "2d4+5"
+/// A Roll represents a single computation, for instance "2d4+5".
 /// 
 /// Create with fields:
 /// 

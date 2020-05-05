@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["interface",""]],"struct":[["Die","A Die represents a single N-sided die"],["ROLL_RE",""],["Roll","A Roll represents a single computation, for instance \"2d4+5\""],["RollResult",""]]});

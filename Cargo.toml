@@ -2,14 +2,18 @@
 name = "librollenspielsache"
 description = "API for working with tabletop RPG entities."
 keywords = ["fun"]
-version = "0.1.0"
+version = "0.0.1"
 authors = ["Ben Lovy <ben@deciduously.com>"]
 edition = "2018"
 license = "BSD-3-Clause"
 repository = "https://github.com/deciduously/librollenspielsache"
-homepage = "https://github.com/deciduously/librollenspielsache"
+homepage = "https://crates.io/crates/librollenspielsache"
 readme = "README.md"
-documentation = "http://deciduously.github.io/librollenspielsache"
+documentation = "https://docs.rs/librollenspielsache"
+include = [
+    "**/*.rs",
+    "Cargo.toml",
+]
 
 [lib]
 name = "rollenspielsache"
