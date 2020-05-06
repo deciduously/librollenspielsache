@@ -1,7 +1,7 @@
 //! Interface for dice
 
-use crate::dice::*;
 use super::*;
+use crate::dice::*;
 use std::str::FromStr;
 
 //

@@ -67,14 +67,8 @@ impl Roll {
         self.modifiers.net()
     }
     pub fn execute(&self) -> RollResult {
-        let base = (0..self.repeat).fold(0, |acc, _| {
-            acc + self.die.roll() as isize
-        });
-        let res = RollResult::new(
-            base,
-            self.get_modifier(),
-        );
-        res
+        let base = (0..self.repeat).fold(0, |acc, _| acc + self.die.roll() as isize);
+        RollResult::new(base, self.get_modifier())
     }
 }
 

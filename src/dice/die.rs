@@ -1,5 +1,5 @@
-use rand::{thread_rng, Rng};
 use super::*;
+use rand::{thread_rng, Rng};
 
 /// A Die represents a single N-sided die
 #[derive(Debug, Clone, Copy, PartialEq)]
@@ -12,7 +12,7 @@ impl Die {
         Self { sides }
     }
 
-    pub fn roll(&self) -> usize {
+    pub fn roll(self) -> usize {
         thread_rng().gen_range(1, self.sides as usize)
     }
 }
