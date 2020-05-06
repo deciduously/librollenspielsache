@@ -10,7 +10,7 @@ The Rollenspielsache is a set of tools for managing tabletop RPG games.  The goa
 
 ## Overview
 
-This repo contains the core library.  Use `cargo build --release` to produce `target/release/librollenspiel.so`.  Then, add this directory to your `$LD_LIBRARY_PATH` to create a binding.  Use `cargo test` to run the tests.
+This repo contains the core library as a Rust crate with an eventually optional C-FFI interface.  In Rust you get to use the full Rust API, I plan to expose as much as I can, but the FFI interface is much more barebones and largely guided by need.  Use `cargo build --release` to produce `target/release/librollenspiel.so`.  Then, add this directory to your `$LD_LIBRARY_PATH` to create a binding.  Use `cargo test` to run the tests.
 
 ### Features
 

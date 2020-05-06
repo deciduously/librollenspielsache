@@ -1,6 +1,8 @@
+//! Interface for dice
+
+use crate::dice::*;
 use super::*;
-use libc::c_char;
-use std::ffi::{CStr, CString};
+use std::str::FromStr;
 
 /// Construct a new Roll object from a string.  This is the only way to build at present.
 /// # Safety
@@ -96,4 +98,16 @@ pub unsafe extern "C" fn roll_result_free(ptr: *mut RollResult) {
         return;
     }
     Box::from_raw(ptr);
+}
+
+/// Get the string representation of a roll result
+/// # Safety
+/// Panics via assert! on a null ptr
+#[no_mangle]
+pub unsafe extern "C" fn roll_result_total(ptr: *const RollResult) -> isize {
+    let result = {
+        assert!(!ptr.is_null());
+        &*ptr // unsafe
+    };
+    result.total()
 }

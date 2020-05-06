@@ -3,7 +3,6 @@
  */
 
 mod die;
-pub mod interface;
 mod roll;
 mod roll_result;
 
