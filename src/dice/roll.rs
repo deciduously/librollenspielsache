@@ -1,7 +1,6 @@
 use super::*;
 use crate::modifier::*;
 use lazy_static::lazy_static;
-use rand::{thread_rng, Rng};
 use regex::Regex;
 
 /// A Roll represents a single computation, for instance "2d4+5".
@@ -68,10 +67,14 @@ impl Roll {
         self.modifiers.net()
     }
     pub fn execute(&self) -> RollResult {
-        RollResult::new(
-            thread_rng().gen_range(1, self.die.sides as isize),
+        let base = (0..self.repeat).fold(0, |acc, _| {
+            acc + self.die.roll() as isize
+        });
+        let res = RollResult::new(
+            base,
             self.get_modifier(),
-        )
+        );
+        res
     }
 }
 

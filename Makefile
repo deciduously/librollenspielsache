@@ -4,6 +4,7 @@
 # @file
 # @version 0.1
 NAME=rollenspielsache
+VERSION=0.1.2
 LIBNAME=lib$(NAME)
 LIBPATH=target/release
 RUSTSRC=src
@@ -31,7 +32,7 @@ $(OUTPATH): $(RUSTSRC)/lib.rs Cargo.toml
 	cargo build --release
 
 clean:
-	rm $(OUTPATH)
+	rm -f $(OUTPATH)
 	rm -rf $(DIST)
 
 .PHONY: all test clean docs

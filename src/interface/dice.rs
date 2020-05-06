@@ -4,6 +4,10 @@ use crate::dice::*;
 use super::*;
 use std::str::FromStr;
 
+//
+// Roll
+//
+
 /// Construct a new Roll object from a string.  This is the only way to build at present.
 /// # Safety
 /// This function unsafely converts a *const ch_char to a CStr
@@ -75,6 +79,10 @@ pub unsafe extern "C" fn roll_execute(ptr: *const Roll) -> *mut RollResult {
     let result = roll.execute();
     Box::into_raw(Box::new(result))
 }
+
+//
+// RollResult
+//
 
 /// Get the string representation of a roll result
 /// # Safety
