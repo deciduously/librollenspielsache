@@ -1,10 +1,16 @@
 /// roll_result.rs defines the object returned by Roll::execute()
 use super::*;
 
-#[derive(Debug)]
+#[derive(Debug, Serialize)]
 pub struct RollResult {
     base: isize,
     offset: isize,
+}
+
+impl Default for RollResult {
+    fn default() -> Self {
+        Self { base: 1, offset: 0 }
+    }
 }
 
 impl RollResult {

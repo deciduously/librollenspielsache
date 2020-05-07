@@ -37,12 +37,12 @@ use regex::Regex;
 ///   let result = new_roll.execute();
 ///   println!("{}", result.total());
 /// # assert_eq!(new_roll, Roll::new(20, 2, Modifiers::from(vec![Modifier::new(7, true, ModifierType::Unspecified)])));
-/// Ok(())
+/// # Ok(())
 /// # }
 /// ```
 ///
 /// Roll::default() will build a "1d6+0" roll.
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Serialize)]
 pub struct Roll {
     die: Die,
     repeat: usize,

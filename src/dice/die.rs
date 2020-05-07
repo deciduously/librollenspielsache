@@ -2,7 +2,7 @@ use super::*;
 use rand::{thread_rng, Rng};
 
 /// A Die represents a single N-sided die
-#[derive(Debug, Clone, Copy, PartialEq)]
+#[derive(Debug, Clone, Copy, PartialEq, Serialize)]
 pub struct Die {
     pub sides: usize,
 }
