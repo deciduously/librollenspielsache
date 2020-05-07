@@ -1,6 +1,6 @@
 # librollenspielsache
 
-[![Crates.io](https://img.shields.io/crates/d/librollenspielsache)](https://crates.io/crates/librollenspielsache)
+[![Crates.io](https://img.shields.io/crates/v/librollenspielsache)](https://crates.io/crates/librollenspielsache)
 [![Docs](https://docs.rs/librollenspielsache/badge.svg)](https://docs.rs/librollenspielsache)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/deciduously/librollenspielsache/Rust)](https://github.com/deciduously/librollenspielsache/actions)
 
