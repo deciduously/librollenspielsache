@@ -1,37 +1,39 @@
 [package]
-name = "librollenspielsache"
-description = "API for working with tabletop RPG entities."
-keywords = ["fun"]
-version = "0.1.1"
 authors = ["Ben Lovy <ben@deciduously.com>"]
-edition = "2018"
-license = "BSD-3-Clause"
-repository = "https://github.com/deciduously/librollenspielsache"
-homepage = "https://crates.io/crates/librollenspielsache"
-readme = "README.md"
+description = "API for working with tabletop RPG entities."
 documentation = "https://docs.rs/librollenspielsache"
-include = [
-    "**/*.rs",
-    "Cargo.toml",
-]
-
-[lib]
-name = "rollenspielsache"
-crate-type = ["cdylib", "rlib"]
-
-[profile.release]
-lto = true
+edition = "2018"
+homepage = "https://crates.io/crates/librollenspielsache"
+include = ["**/*.rs", "Cargo.toml"]
+keywords = ["fun"]
+license = "BSD-3-Clause"
+name = "librollenspielsache"
+readme = "README.md"
+repository = "https://github.com/deciduously/librollenspielsache"
+version = "0.1.2"
 
 [dependencies]
-
-libc = "0.2"
 lazy_static = "1.4"
-rand = { version =  "0.7", features = ["small_rng"] }
-redis = "0.15"
+libc = "0.2"
 r2d2_redis = "0.13"
+redis = "0.15"
 regex = "1"
-thiserror = "1"
+serde = { version = "1.0", features = ["derive"] }
+serde_derive = "1.0"
+serde_json = "1.0"
+thiserror = "1.0"
+
+[dependencies.rand]
+features = ["small_rng"]
+version = "0.7"
 
 [dev-dependencies]
-
 pretty_assertions = "0.6"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+name = "rollenspielsache"
+
+[profile]
+[profile.release]
+lto = true

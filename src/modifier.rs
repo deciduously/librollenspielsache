@@ -1,9 +1,10 @@
 //! All the different types of modifier.
 
 use crate::skill::Skill;
+use serde::Serialize;
 use std::fmt;
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Serialize)]
 pub enum ModifierType {
     Skill(Skill),
     Unspecified,
@@ -20,7 +21,7 @@ impl fmt::Display for ModifierType {
     }
 }
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Serialize)]
 pub struct Modifier {
     pub offset: isize,
     pub variant: ModifierType,
@@ -35,7 +36,7 @@ impl Modifier {
     }
 }
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Serialize)]
 pub struct Modifiers(Vec<Modifier>);
 
 impl Modifiers {

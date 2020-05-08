@@ -1,7 +1,6 @@
 use super::*;
 use crate::modifier::*;
 use lazy_static::lazy_static;
-use rand::{thread_rng, Rng};
 use regex::Regex;
 
 /// A Roll represents a single computation, for instance "2d4+5".
@@ -38,12 +37,12 @@ use regex::Regex;
 ///   let result = new_roll.execute();
 ///   println!("{}", result.total());
 /// # assert_eq!(new_roll, Roll::new(20, 2, Modifiers::from(vec![Modifier::new(7, true, ModifierType::Unspecified)])));
-/// Ok(())
+/// # Ok(())
 /// # }
 /// ```
 ///
 /// Roll::default() will build a "1d6+0" roll.
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Serialize)]
 pub struct Roll {
     die: Die,
     repeat: usize,
@@ -68,10 +67,8 @@ impl Roll {
         self.modifiers.net()
     }
     pub fn execute(&self) -> RollResult {
-        RollResult::new(
-            thread_rng().gen_range(1, self.die.sides as isize),
-            self.get_modifier(),
-        )
+        let base = (0..self.repeat).fold(0, |acc, _| acc + self.die.roll() as isize);
+        RollResult::new(base, self.get_modifier())
     }
 }
 
