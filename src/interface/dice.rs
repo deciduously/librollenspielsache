@@ -1,6 +1,12 @@
+//! Interface for dice
+
 use super::*;
-use libc::c_char;
-use std::ffi::{CStr, CString};
+use crate::dice::*;
+use std::str::FromStr;
+
+//
+// Roll
+//
 
 /// Construct a new Roll object from a string.  This is the only way to build at present.
 /// # Safety
@@ -74,6 +80,23 @@ pub unsafe extern "C" fn roll_execute(ptr: *const Roll) -> *mut RollResult {
     Box::into_raw(Box::new(result))
 }
 
+/// Get the string representation of a roll
+/// # Safety
+/// Panics via assert! on a null ptr
+#[no_mangle]
+pub unsafe extern "C" fn roll_to_string(ptr: *const Roll) -> *mut c_char {
+    let roll = {
+        assert!(!ptr.is_null());
+        &*ptr // unsafe
+    };
+    let c_str = CString::new(roll.to_string()).unwrap();
+    c_str.into_raw()
+}
+
+//
+// RollResult
+//
+
 /// Get the string representation of a roll result
 /// # Safety
 /// Panics via assert! on a null ptr
@@ -96,4 +119,30 @@ pub unsafe extern "C" fn roll_result_free(ptr: *mut RollResult) {
         return;
     }
     Box::from_raw(ptr);
+}
+
+/// Get the JSON string from a RollResult
+/// # Safety
+/// Panics via assert! on a null ptr
+#[no_mangle]
+pub unsafe extern "C" fn roll_result_to_json(ptr: *const RollResult) -> *mut c_char {
+    let roll_result = {
+        assert!(!ptr.is_null());
+        &*ptr // unsafe
+    };
+    let json = serde_json::to_string(&roll_result).unwrap();
+    let c_str = CString::new(json).unwrap();
+    c_str.into_raw()
+}
+
+/// Get the string representation of a roll result
+/// # Safety
+/// Panics via assert! on a null ptr
+#[no_mangle]
+pub unsafe extern "C" fn roll_result_total(ptr: *const RollResult) -> isize {
+    let result = {
+        assert!(!ptr.is_null());
+        &*ptr // unsafe
+    };
+    result.total()
 }

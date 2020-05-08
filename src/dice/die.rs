@@ -1,7 +1,8 @@
 use super::*;
+use rand::{thread_rng, Rng};
 
 /// A Die represents a single N-sided die
-#[derive(Debug, Clone, Copy, PartialEq)]
+#[derive(Debug, Clone, Copy, PartialEq, Serialize)]
 pub struct Die {
     pub sides: usize,
 }
@@ -9,6 +10,10 @@ pub struct Die {
 impl Die {
     pub fn new(sides: usize) -> Self {
         Self { sides }
+    }
+
+    pub fn roll(self) -> usize {
+        thread_rng().gen_range(1, self.sides as usize)
     }
 }
 

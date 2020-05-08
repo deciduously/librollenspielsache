@@ -14,12 +14,11 @@ pub mod character;
 pub mod dice;
 pub mod error;
 pub mod game_system;
-pub mod interface;
+mod interface;
 pub mod modifier;
 pub mod redis;
 pub mod skill;
 
-pub use dice::interface::*;
 pub use interface::*;
 
 #[cfg(test)]
