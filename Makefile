@@ -4,7 +4,7 @@
 # @file
 # @version 0.1
 NAME=rollenspielsache
-VERSION=0.1.2
+VERSION=0.2.0
 LIBNAME=lib$(NAME)
 LIBPATH=target/release
 RUSTSRC=src
