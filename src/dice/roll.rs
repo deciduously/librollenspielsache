@@ -68,7 +68,7 @@ impl Roll {
     }
     pub fn execute(&self) -> RollResult {
         let base = (0..self.repeat).fold(0, |acc, _| acc + self.die.roll() as isize);
-        RollResult::new(base, self.get_modifier())
+        RollResult::new(self.clone(), base, self.get_modifier())
     }
 }
 
@@ -85,16 +85,6 @@ impl Default for Roll {
 impl fmt::Display for Roll {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(f, "{}d{} ({})", self.repeat, self.die, self.modifiers)
-    }
-}
-
-impl RedisInterface for Roll {
-    fn to_redis_hash(&self) -> RedisHash {
-        let mut hash = RedisHash::new();
-        hash.add_pair("die", &format!("{}", self.die));
-        hash.add_pair("repeat", &format!("{}", self.repeat));
-        hash.add_pair("modifiers", &format!("{}", self.modifiers)); // TODO this should really become a List
-        hash
     }
 }
 
