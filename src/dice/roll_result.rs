@@ -33,3 +33,15 @@ impl fmt::Display for RollResult {
         write!(f, "{}: {} ({}{})", self.roll, self.base, sign, self.offset)
     }
 }
+
+#[cfg(test)]
+mod test {
+    use super::*;
+    use pretty_assertions::assert_eq;
+    #[test]
+    fn test_roll_positive_modifier() {
+        let result = Roll::from_str("1d6+3").unwrap().execute();
+        assert_eq!(result.roll.die, Die::default());
+        assert_eq!(result.offset, 3);
+    }
+}
