@@ -3,14 +3,18 @@ use super::*;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct RollResult {
-    roll: Roll,
-    base: isize,
-    offset: isize,
+    pub roll: Roll,
+    pub base: isize,
+    pub offset: isize,
 }
 
 impl Default for RollResult {
     fn default() -> Self {
-        Self { roll: Roll::default(), base: 1, offset: 0 }
+        Self {
+            roll: Roll::default(),
+            base: 1,
+            offset: 0,
+        }
     }
 }
 
