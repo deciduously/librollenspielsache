@@ -42,7 +42,7 @@ use regex::Regex;
 /// ```
 ///
 /// Roll::default() will build a "1d6+0" roll.
-#[derive(Debug, Clone, PartialEq, Serialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Roll {
     die: Die,
     repeat: usize,

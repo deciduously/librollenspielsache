@@ -6,7 +6,7 @@ mod die;
 mod roll;
 mod roll_result;
 
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 use std::{fmt, str::FromStr};
 
 pub use die::*;

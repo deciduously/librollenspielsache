@@ -1,7 +1,7 @@
 //! A RollResult is the object returned by Roll::execute(), including a copy of the original roll
 use super::*;
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct RollResult {
     roll: Roll,
     base: isize,

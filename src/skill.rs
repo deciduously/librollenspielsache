@@ -1,11 +1,11 @@
 //! skill.rs is concerned with skills and abilities.
 
 use crate::dice::Roll;
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 use std::fmt;
 use std::str::FromStr;
 
-#[derive(Debug, Clone, PartialEq, Serialize)]
+#[derive(Debug, Clone, PartialEq, Deserialize, Serialize)]
 pub struct Skill {
     name: String,
     short_name: String,
