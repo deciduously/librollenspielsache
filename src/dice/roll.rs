@@ -42,10 +42,10 @@ use regex::Regex;
 /// ```
 ///
 /// Roll::default() will build a "1d6+0" roll.
-#[derive(Debug, Clone, PartialEq, Serialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Roll {
-    die: Die,
-    repeat: usize,
+    pub die: Die,
+    pub repeat: usize,
     modifiers: Modifiers,
 }
 
@@ -63,12 +63,16 @@ impl Roll {
     pub fn get_repeat(&self) -> usize {
         self.repeat
     }
-    fn get_modifier(&self) -> isize {
+    pub fn get_modifier(&self) -> isize {
         self.modifiers.net()
     }
     pub fn execute(&self) -> RollResult {
-        let base = (0..self.repeat).fold(0, |acc, _| acc + self.die.roll() as isize);
-        RollResult::new(base, self.get_modifier())
+        let base = if self.die.sides == 1 {
+            1
+        } else {
+            (0..self.repeat).fold(0, |acc, _| acc + self.die.roll() as isize)
+        };
+        RollResult::new(self.clone(), base)
     }
 }
 
@@ -84,17 +88,7 @@ impl Default for Roll {
 
 impl fmt::Display for Roll {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "{}d{} ({})", self.repeat, self.die, self.modifiers)
-    }
-}
-
-impl RedisInterface for Roll {
-    fn to_redis_hash(&self) -> RedisHash {
-        let mut hash = RedisHash::new();
-        hash.add_pair("die", &format!("{}", self.die));
-        hash.add_pair("repeat", &format!("{}", self.repeat));
-        hash.add_pair("modifiers", &format!("{}", self.modifiers)); // TODO this should really become a List
-        hash
+        write!(f, "{}d{}{}", self.repeat, self.die, self.get_modifier())
     }
 }
 

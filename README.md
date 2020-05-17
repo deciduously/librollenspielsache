@@ -18,6 +18,8 @@ This library aims to cover as much territory as possible, reducing automating as
 
 #### Types
 
+PLANNED!
+
 * Party, either player or NPC (for encounters) - APL, CR
 * Character - class, race
 * Item
@@ -33,7 +35,6 @@ TODO roll20 integration?
 Data-ready
 
 * C-compatible - see [librollenspielsache-rb](https://github.com/deciduously/librollenspielsache-rb) for an example of how to use from another language.
-* Redis-ready - each type has a method to build an appropriate Redis command for insertion.
 
 ## Usage
 

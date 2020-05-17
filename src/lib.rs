@@ -16,7 +16,6 @@ pub mod error;
 pub mod game_system;
 mod interface;
 pub mod modifier;
-pub mod redis;
 pub mod skill;
 
 pub use interface::*;
