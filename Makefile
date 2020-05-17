@@ -35,6 +35,6 @@ clean:
 	rm -f $(OUTPATH)
 	rm -rf $(DIST)
 
-.PHONY: all test clean docs
+.PHONY: all test clean
 
 # end
